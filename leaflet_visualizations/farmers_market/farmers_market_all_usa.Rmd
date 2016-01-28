@@ -1,0 +1,14 @@
+---
+title: "All USA Farmers Markets Map"
+output: html_document
+---
+
+```{r, echo = FALSE}
+source("/users/nickbecker/documents/r workspace/farmers_market.R")
+```
+
+
+```{r, echo=FALSE}
+all_markets_map
+```
+

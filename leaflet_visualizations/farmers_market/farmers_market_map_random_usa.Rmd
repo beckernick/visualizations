@@ -1,0 +1,14 @@
+---
+title: "100 Random USA Farmers Markets Map"
+output: html_document
+---
+
+```{r, echo = FALSE}
+source("/users/nickbecker/documents/r workspace/farmers_market.R")
+```
+
+
+```{r, echo=FALSE}
+random_markets_map
+```
+

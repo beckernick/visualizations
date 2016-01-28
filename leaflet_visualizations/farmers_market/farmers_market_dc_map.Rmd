@@ -1,0 +1,14 @@
+---
+title: "Washington DC Farmers Markets Map"
+output: html_document
+---
+
+```{r, echo = FALSE}
+source("/users/nickbecker/documents/r workspace/farmers_market.R")
+```
+
+
+```{r, echo=FALSE}
+dc_farmers_map
+```
+
