@@ -11,6 +11,7 @@ library(rgeos)
 library(maptools)
 library(gpclib)
 library(choroplethr)
+library(scales)
 
 complaints = read.csv("/users/nickbecker/downloads/consumer_complaints.csv")
 head(complaints)
@@ -117,16 +118,24 @@ p = ggplot(complaints_by_state, aes(x = State, y = complaints_per_100K, fill = "
 p
 
 p1 = ggplot(complaints_by_state, aes(x = State, y = complaints_per_100K)) +
-  geom_point(color = "red") +
+  #geom_point(color = "red") +
+  geom_bar(stat = "identity", fill = hue_pal()(4)[3]) +
   ylim(0, 500) +
   coord_flip() +
   fte_theme() +
-  labs(title="Financial Products/Services Complaints per 100,000 People, \n by State 2011-2015",
+  labs(title="Financial Products/Services Complaints per 100,000 People,\n2011-2015",
        x="State",
-       y="# of Complaints")
+       y="Complaints per 100K") +
+  theme(axis.text.y = element_text(size = 18),
+        axis.text.x = element_text(size = 18),
+        axis.title.x = element_text(size = 22),
+        axis.title.y = element_text(size = 22),
+        plot.title = element_text(size = 25))
 p1
 
-
+png("/users/nickbecker/Documents/Github/beckernick.github.io/images/cfpb_complaints/complaints_chart.png", height = 1000, width = 1250)
+p1
+dev.off()
 
 
 
